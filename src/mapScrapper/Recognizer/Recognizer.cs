@@ -65,8 +65,11 @@ namespace mapScrapper
 			r.Polygon = polygon;
 			r.ImageExtents = pImage.Size;
 			r.Extents = Downloader.ReadExtents(r.getTxtName(useHiRes));
-			
-			Console.WriteLine("Done.");
+
+            if (pImage != null)
+                pImage.Dispose();
+
+            Console.WriteLine("Done.");
 		}
 		public List<Polygon> RecognizeImagePolygon(Image pImage, bool deepSearch = true)
 		{
